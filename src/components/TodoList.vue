@@ -1,9 +1,9 @@
 <template>
   <div>
-    <ul v-for="item in list" v-bind:key="item.id">
-      <TodoItem :id="item.id" :name="item.name"/>
+    <ul class="list">
+      <TodoItem :id="item.id" :name="item.name" v-for="item in list" v-bind:key="item.id"/>
     </ul>
-    {{list}}
+    <pre>{{list}}</pre>
   </div>
 </template>
 
@@ -18,3 +18,10 @@ export default {
 };
 </script>
 
+<style>
+.list {
+  padding-left: 0;
+  margin: 20px 0;
+  list-style-type: none;
+}
+</style>

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Vue Todo List</h1>
     <TodoTopPanel @add-to-list-event="addToList"/>
     <TodoList :list="list"/>
   </div>
@@ -33,3 +34,24 @@ export default {
   }
 };
 </script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+  line-height: 1;
+}
+
+#app {
+  width: 600px;
+  padding: 30px 20px;
+  margin: 30px auto;
+  background-color: #A5C681;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, .3);
+}
+
+</style>
