@@ -23,14 +23,18 @@ export default {
     addToList(message) {
       const { length: listLength } = this.list;
       const lastElementId = listLength ? this.list[listLength - 1].id : -1;
-      this.list = [...this.list, { id: lastElementId + 1, name: message }];
+      this.list = [...this.list, { id: lastElementId + 1, name: message, checked: false }];
     },
-    deleteItem(deleteId) {
-      this.list = this.list.filter(({ id }) => id !== deleteId);
+    deleteItem(itemId) {
+      this.list = this.list.filter(({ id }) => id !== itemId);
+    },
+    toggleItemStatus(itemId) {
+      this.list = this.list.reduce((acc, item) => [...acc, item.id === itemId ? {...item, checked: !item.checked} : item], []);
     }
   },
   mounted() {
     this.$root.$on("delete-item-event", this.deleteItem);
+    this.$root.$on("check-item-event", this.toggleItemStatus);
   }
 };
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <li class="item">
+  <li :class="{'item': true, 'item-checked': checked}">
     <div>{{name}}</div>
     <div class="btn-group">
       <button class="btn btn-delete" @click="deleteItem(id)">delete</button>
-      <button class="btn">check</button>
+      <button class="btn" @click="toggleItemStatus(id)">{{checked ? 'uncheck' : 'check'}}</button>
     </div>
   </li>
 </template>
@@ -12,12 +12,16 @@
 export default {
   name: "TodoItem",
   props: {
+    id: Number,
     name: String,
-    id: Number
+    checked: Boolean
   },
   methods: {
     deleteItem(id) {
       this.$root.$emit("delete-item-event", id);
+    },
+    toggleItemStatus(id){
+      this.$root.$emit("check-item-event", id);
     }
   }
 };
@@ -32,6 +36,11 @@ export default {
   padding: 8px 10px;
   margin-bottom: 5px;
   transition: background-color .3s;
+}
+
+.item-checked {
+  text-decoration: line-through;
+  color: #888;
 }
 
 .item:hover {
