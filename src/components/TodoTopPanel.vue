@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <form @submit="submitForm">
     <input type="text" v-model="message">
-    <button @click="add">+ add</button>
-  </div>
+    <button type="submit">+ add</button>
+  </form>
 </template>
 
 <script>
@@ -12,7 +12,12 @@ export default {
     message: ""
   }),
   methods: {
-    add() {
+    submitForm(event) {
+      event.preventDefault();
+
+      const emptyInputString = !this.message;
+      if (emptyInputString) return null;
+
       this.$emit("add-to-list-event", this.message);
       this.message = "";
     }
