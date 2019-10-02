@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img width="25%" src="./assets/logo.png">
-    <HelloWorld msg="Hello Vue in CodeSandbox!" />
+    <TodoTopPanel @add-to-list-event="addToList"/>
+    <TodoList :list="list"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import TodoTopPanel from "./components/TodoTopPanel";
+import TodoList from "./components/TodoList";
 
 export default {
   name: "App",
+  data: () => ({
+    list: []
+  }),
   components: {
-    HelloWorld
+    TodoTopPanel,
+    TodoList
+  },
+  methods: {
+    addToList(message) {
+      const { length: listLength } = this.list;
+      const lastElementId = listLength ? this.list[listLength - 1].id : -1;
+      this.list = [...this.list, { id: lastElementId + 1, name: message }];
+    },
+    deleteItem(deleteId) {
+      this.list = this.list.filter(({ id }) => id !== deleteId);
+    }
+  },
+  mounted() {
+    this.$root.$on("delete-item-event", this.deleteItem);
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
