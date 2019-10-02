@@ -2,7 +2,7 @@
   <li :class="{'item': true, 'item-checked': checked}">
     <div>{{name}}</div>
     <div class="btn-group">
-      <button class="btn btn-delete" @click="deleteItem(id)">delete</button>
+      <button class="btn btn-delete" @click="deleteItem(id)" v-if="checked">delete</button>
       <button class="btn" @click="toggleItemStatus(id)">{{checked ? 'uncheck' : 'check'}}</button>
     </div>
   </li>
@@ -20,7 +20,7 @@ export default {
     deleteItem(id) {
       this.$root.$emit("delete-item-event", id);
     },
-    toggleItemStatus(id){
+    toggleItemStatus(id) {
       this.$root.$emit("check-item-event", id);
     }
   }
@@ -35,7 +35,7 @@ export default {
   justify-content: space-between;
   padding: 8px 10px;
   margin-bottom: 5px;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 }
 
 .item-checked {
@@ -44,7 +44,7 @@ export default {
 }
 
 .item:hover {
-  background-color: rgba(0, 0, 0, .04);
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .btn {
@@ -52,7 +52,7 @@ export default {
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
   background-color: transparent;
   border: none;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   cursor: pointer;
 }
 

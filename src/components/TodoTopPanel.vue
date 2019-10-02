@@ -34,9 +34,9 @@ export default {
   width: 100%;
   height: 40px;
   padding: 0 85px 0 15px;
-  background-color: rgba(0, 0, 0, .04);
+  background-color: rgba(0, 0, 0, 0.04);
   border: 0;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 }
 
 .input:focus {
@@ -53,7 +53,7 @@ export default {
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
   background-color: transparent;
   border: none;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   cursor: pointer;
 }
 

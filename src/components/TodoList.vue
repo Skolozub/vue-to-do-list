@@ -1,7 +1,13 @@
 <template>
   <div>
     <ul class="list">
-      <TodoItem :id="item.id" :name="item.name" :checked='item.checked' v-for="item in list" v-bind:key="item.id"/>
+      <TodoItem
+        :id="item.id"
+        :name="item.name"
+        :checked="item.checked"
+        v-for="item in list"
+        v-bind:key="item.id"
+      />
     </ul>
     <pre>{{list}}</pre>
   </div>
