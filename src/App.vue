@@ -69,29 +69,37 @@ export default {
 
 html,
 body {
-  min-height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
   line-height: 1;
 }
 
 body {
+  overflow-y: scroll;
   background: #213E31;
   background: -webkit-linear-gradient(bottom right, #213E31, #05FF9E);
   background: -moz-linear-gradient(bottom right, #213E31, #05FF9E);
   background: linear-gradient(to top left, #213E31, #05FF9E);
+  background-repeat: no-repeat;
 }
 
 sup {
   padding-left: 10px;
-  color: #8e8e8e;
+  color: #918b8b;
+  font-size: 1.3rem;
 }
 
 #app {
+  min-height: 100vh;
   position: relative;
   width: 600px;
+  min-width: 320px;
+  margin: 0 auto;
   padding: 30px 20px;
-  margin: 30px auto;
-  background-color: #A5C681;
+  background-color: #88BF4B;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -107,5 +115,17 @@ sup {
 .link img {
   width: 30px;
   height: auto;
+}
+
+@media (max-width: 640px) {
+  #app {
+    width: 100%;
+  }
+  sup {
+    width: 100%;
+    display: block;
+    padding: 0;
+    font-size: 0.8rem;
+  }
 }
 </style>
