@@ -70,8 +70,8 @@ export default {
 html,
 body {
   min-height: 100vh;
-  font-size: 16px;
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
+  font-size: 16px;
   line-height: 1;
 }
 
@@ -86,25 +86,25 @@ body {
 
 sup {
   padding-left: 10px;
-  color: #918b8b;
+  color: #918B8B;
   font-size: 1.3rem;
 }
 
 #app {
-  min-height: 100vh;
   position: relative;
   width: 600px;
   min-width: 320px;
-  margin: 0 auto;
+  min-height: 100vh;
   padding: 30px 20px;
+  margin: 0 auto;
   background-color: #88BF4B;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 }
 
 .link {
   position: absolute;
-  bottom: 10px;
   right: 10px;
+  bottom: 10px;
   display: flex;
   align-items: center;
   color: #000;
@@ -119,9 +119,10 @@ sup {
   #app {
     width: 100%;
   }
+
   sup {
-    width: 100%;
     display: block;
+    width: 100%;
     padding: 0;
     font-size: 0.8rem;
   }

@@ -39,8 +39,8 @@ export default {
 }
 
 .item-checked {
-  text-decoration: line-through;
   color: #888;
+  text-decoration: line-through;
 }
 
 .item:hover {
