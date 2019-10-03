@@ -70,8 +70,6 @@ export default {
 html,
 body {
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
   font-size: 16px;
   font-family: "Source Sans Pro", "Lucida Grande", sans-serif;
   line-height: 1;
